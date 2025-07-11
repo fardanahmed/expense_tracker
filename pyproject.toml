@@ -1,0 +1,11 @@
+# pyproject.toml
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+# E = pycodestyle errors, F = Pyflakes, W = pycodestyle warnings, I = isort
+select = ["E", "F", "W", "I"]
