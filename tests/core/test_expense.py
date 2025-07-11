@@ -1,4 +1,5 @@
 # tests/core/test_expense.py
+import pytest
 from datetime import date
 from expense_tracker.core.expense import Expense # type: ignore
 
@@ -24,3 +25,17 @@ def test_create_expense_object():
     assert expense.category == "Food"
     assert expense.description == "Lunch with colleagues"
     assert expense.expense_date == expense_date
+
+def test_create_expense_with_negative_amount_raises_error():
+    """
+    GIVEN: A negative amount for an expense
+    WHEN: An attempt is made to create the Expense object
+    THEN: A ValueError should be raised
+    """
+    with pytest.raises(ValueError, match="Amount must be non-negative"):
+        Expense(
+            amount=-10.0,
+            category="Invalid",
+            description="This should not be allowed",
+            expense_date=date(2024, 1, 1)
+        )
