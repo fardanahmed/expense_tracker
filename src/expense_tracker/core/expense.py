@@ -9,3 +9,7 @@ class Expense:
     category: str
     description: str
     expense_date: date
+
+    def __post_init__(self):
+        if self.amount < 0:
+            raise ValueError("Amount must be non-negative")

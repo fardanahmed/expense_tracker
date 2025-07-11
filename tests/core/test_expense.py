@@ -20,6 +20,12 @@ def test_create_expense_object():
         expense_date=expense_date
     )
 
+    # Assert
+    assert expense.amount == 50.0
+    assert expense.category == "Food"
+    assert expense.description == "Lunch with colleagues"
+    assert expense.expense_date == expense_date
+
 def test_create_expense_with_negative_amount_raises_error():
     """
     GIVEN: A negative amount for an expense
@@ -33,9 +39,3 @@ def test_create_expense_with_negative_amount_raises_error():
             description="This should not be allowed",
             expense_date=date(2024, 1, 1)
         )
-
-    # Assert
-    assert expense.amount == 50.0
-    assert expense.category == "Food"
-    assert expense.description == "Lunch with colleagues"
-    assert expense.expense_date == expense_date
