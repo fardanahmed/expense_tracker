@@ -4,9 +4,11 @@ from rest_framework.routers import DefaultRouter
 from expense_tracker.core import views
 
 router = DefaultRouter()
-router.register(r'expenses', views.ExpenseViewSet, basename='expense') # Register the ExpenseViewSet with the router
+# Register the ExpenseViewSet with the router
+router.register(r'expenses', views.ExpenseViewSet, basename='expense')
 
 # The API URLs are now determined automatically by the router.
 urlpatterns = [
-    path('api/', include(router.urls)),     # Include the router's URLs under the 'api/' path
+    # Include the router's URLs under the 'api/' path
+    path('api/', include(router.urls)),
 ]

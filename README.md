@@ -20,12 +20,41 @@ Code Quality: Black, Ruff
 API Endpoints
 The following endpoints are available:
 
-Method  Endpoint  Description
-GET /api/expenses/  Retrieve a list of all expenses.
-POST  /api/expenses/  Create a new expense.
-GET /api/expenses/{id}/ Retrieve a single expense by its ID.
-PUT /api/expenses/{id}/ Update a single expense by its ID.
-DELETE  /api/expenses/{id}/ Delete a single expense by its ID.
+Method
+
+Endpoint
+
+Description
+
+GET
+
+/api/expenses/
+
+Retrieve a list of all expenses.
+
+POST
+
+/api/expenses/
+
+Create a new expense.
+
+GET
+
+/api/expenses/{id}/
+
+Retrieve a single expense by its ID.
+
+PUT
+
+/api/expenses/{id}/
+
+Update a single expense by its ID.
+
+DELETE
+
+/api/expenses/{id}/
+
+Delete a single expense by its ID.
 
 
 Getting Started
@@ -44,6 +73,7 @@ cd expense_tracker
 Create and activate a virtual environment:
 
 Bash
+
 # On macOS and Linux
 python3 -m venv.venv
 source.venv/bin/activate
@@ -61,6 +91,7 @@ Running the Application
 Start the development server with the following command:
 
 Bash
+
 python manage.py runserver
 The API will be available at http://127.0.0.1:8000/api/expenses/.
 
@@ -68,9 +99,8 @@ Running Tests
 To run the automated test suite, execute the following command:
 
 Bash
+
 pytest
-
-
 License
 Distributed under the MIT License. See LICENSE for more information.
 
@@ -96,17 +126,3 @@ class ExpenseViewSet(viewsets.ModelViewSet):
     """
     queryset = Expense.objects.all()
     serializer_class = ExpenseSerializer
-This multi-line docstring clearly explains the purpose of the class, making the code easier to understand for anyone who reads it.    
-
-3. Commit Your Documentation
-Now, let's save our new documentation to Git.
-
-Bash
-# Add the new and modified files
-git add README.md src/expense_tracker/core/views.py
-
-# Commit with a conventional commit message
-git commit -m "docs(project): add comprehensive README and viewset docstring"
-
-# Push to your main branch on GitHub
-git push origin main
